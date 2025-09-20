@@ -17,6 +17,16 @@ main section {
   padding: var(--section-padding-height) var(--section-padding-width);
 }
 
+h1 {
+  font-weight: 700;
+}
+
+p {
+  font-weight: 400;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
 div.container {
   width: 100%;
   margin: auto;
