@@ -32,7 +32,6 @@ button {
   color: white;
   border: none;
   padding: 1rem 2rem;
-  font-size: 1.125rem;
   font-weight: 600;
   border-radius: 12px;
   cursor: pointer;
@@ -51,6 +50,5 @@ button:active {
 }
 
 button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(65, 59, 65, 0.4);
+  border: 3px rgba(65, 59, 65, 0.4);
 }
