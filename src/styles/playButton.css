@@ -1,0 +1,12 @@
+/*
+    The container for the buttons on main menu
+*/
+
+div.button-container.disabled {
+    display: none;
+}
+
+div.button-container {
+    display: flex;
+    gap: 1rem;
+}
