@@ -6,7 +6,7 @@ async function fetchGeneration(id) {
     return await response.json()
 }
 
-export default function Button({ text, clickedId, setClickedId, id }) {
+export default function Button({ text, options, setOptions, id }) {
     const queryClient = useQueryClient();
 
     async function handleClick() {
@@ -14,11 +14,14 @@ export default function Button({ text, clickedId, setClickedId, id }) {
             queryKey: ['generation', id],
             queryFn: async () => await fetchGeneration(id)
         })
-        setClickedId(id);
+        setOptions({
+            ...options,
+            generationId: id
+        });
     }
 
     return (
-        <button onClick={handleClick} disabled={(clickedId ? true : false)}>
+        <button onClick={handleClick} disabled={(options.generationId ? true : false)}>
             {text}
         </button>
     )
