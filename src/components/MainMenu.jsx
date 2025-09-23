@@ -1,4 +1,5 @@
 import PlayButtons from "./PlayButtons"
+import Card from "./Card"
 import { useState } from "react"
 import { useQueryClient } from "@tanstack/react-query";
 
@@ -21,6 +22,7 @@ export default function MainMenu() {
                 <h1>Pokemon Memory Game</h1>
                 <p>Memorize the pokemon on your screen. Try to catch them all!</p>
                 <PlayButtons options={options} setOptions={setOptions}></PlayButtons>
+                <Card pokemonName='charizard'></Card>
             </div>
         </section>
     )
