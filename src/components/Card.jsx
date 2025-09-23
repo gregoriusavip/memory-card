@@ -1,4 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
+import Loader from './Loader'
+import '../styles/card.css'
 
 async function fetchPokemon(name) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
@@ -6,18 +8,34 @@ async function fetchPokemon(name) {
 }
 
 export default function PokeCard({ pokemonName }) {
-    const { isPending, isError, data, error } = useQuery({
+    let url = '';
+    const { isPending, isError, data, isSuccess, error } = useQuery({
         queryKey: ['pokemon', pokemonName],
         queryFn: async () => await fetchPokemon(pokemonName),
     })
 
     if (isPending) {
-        return <span>Loading...</span>
+        return <Loader></Loader>
     }
 
     if (isError) {
+        // TODO: Error Pop up
         return <span>Error: {error.message}</span>
     }
 
-    return <pre>{JSON.stringify(data, null, 2)}</pre>
+    if (isSuccess) {
+        url = data['sprites']['other']['official-artwork']['front_default']
+    }
+
+    return (
+        <div className="card">
+            <img className="sprite" src={url} alt={"the sprite of the pokemon " + pokemonName}>
+            </img>
+            <h2>{pokemonName.toUpperCase()}</h2>
+            <div className='choices'>
+                <button id="seen-btn">✅ SEEN</button>
+                <button id="new-btn">❌ NEW</button>
+            </div>
+        </div>
+    );
 }
