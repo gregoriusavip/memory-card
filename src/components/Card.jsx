@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+import CardButtons from './CardButtons'
 import Loader from './Loader'
 import '../styles/card.css'
 
@@ -32,10 +33,7 @@ export default function PokeCard({ pokemonName }) {
             <img className="sprite" src={url} alt={"the sprite of the pokemon " + pokemonName}>
             </img>
             <h2>{pokemonName.toUpperCase()}</h2>
-            <div className='choices'>
-                <button id="seen-btn">✅ SEEN</button>
-                <button id="new-btn">❌ NEW</button>
-            </div>
+            <CardButtons></CardButtons>
         </div>
     );
 }
