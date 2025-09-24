@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import CardButtons from './CardButtons'
 import Loader from './Loader'
 import '../styles/card.css'
+import { useState } from 'react'
 
 async function fetchPokemon(name) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
@@ -9,6 +10,7 @@ async function fetchPokemon(name) {
 }
 
 export default function PokeCard({ pokemonName }) {
+    const [clicked, isClicked] = useState(false);
     let url = '';
     const { isPending, isError, data, isSuccess, error } = useQuery({
         queryKey: ['pokemon', pokemonName],
@@ -29,11 +31,11 @@ export default function PokeCard({ pokemonName }) {
     }
 
     return (
-        <div className="card">
+        <div className={"card" + (clicked ? " clicked" : "")}>
             <img className="sprite" src={url} alt={"the sprite of the pokemon " + pokemonName}>
             </img>
             <h2>{pokemonName.toUpperCase()}</h2>
-            <CardButtons></CardButtons>
+            <CardButtons isClicked={isClicked}></CardButtons>
         </div>
     );
 }
