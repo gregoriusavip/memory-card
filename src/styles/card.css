@@ -60,11 +60,11 @@ div.choices button::before {
     z-index: -1;
 }
 
-div.choices button.seen-btn::before {
+div.choices button#seen::before {
     background-color: rgba(45, 216, 68, 0.555);
 }
 
-div.choices button.new-btn::before {
+div.choices button#new::before {
     background-color: rgba(201, 40, 40, 0.555);
 }
 
