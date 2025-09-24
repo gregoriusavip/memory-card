@@ -1,7 +1,7 @@
 import Button from "./Button"
 import '../styles/playButton.css'
 
-export default function PlayButtons({ options, setOptions }) {
+export default function GameButtons({ options, setOptions }) {
     return (
         <div className="button-container">
             <Button text='GENERATION 1' options={options} setOptions={setOptions} id={1}></Button>
