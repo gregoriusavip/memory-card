@@ -38,7 +38,7 @@ export default function PokeCard({ pokemonName, setPlayerStats, playerStats }) {
         alt={"the sprite of the pokemon " + pokemonName}
       ></img>
       <h2>{pokemonName.toUpperCase()}</h2>
-      <CardButtons setClickedButton={() => setClickedButton()}></CardButtons>
+      <CardButtons setClickedButton={setClickedButton}></CardButtons>
     </div>
   );
 }
