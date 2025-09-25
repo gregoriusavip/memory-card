@@ -1,5 +1,5 @@
 import { useQueryClient } from "@tanstack/react-query";
-import "../styles/playButton.css";
+import "../styles/gameButton.css";
 
 async function fetchGeneration(id) {
   const response = await fetch(`https://pokeapi.co/api/v2/generation/${id}`);
