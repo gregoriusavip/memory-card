@@ -28,13 +28,13 @@ export default function CardButtons({ gameInfo, setGameInfo }) {
   function handleClickSeen(pokemonSet, pokemonId) {
     pokemonSet.has(pokemonId)
       ? addScore(pokemonSet)
-      : reduceLive(pokemonSet.add(pokemonId));
+      : reduceLive(new Set([...pokemonSet, pokemonId]));
   }
 
   function handleClickNew(pokemonSet, pokemonId) {
     pokemonSet.has(pokemonId)
       ? reduceLive(pokemonSet)
-      : addScore(pokemonSet.add(pokemonId));
+      : addScore(new Set([...pokemonSet, pokemonId]));
   }
 
   return (
