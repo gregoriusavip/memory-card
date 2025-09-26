@@ -26,6 +26,15 @@ export default function GameRound({ pokemonList }) {
     queryFn: async () => await fetchPokemon(pokemonName),
   });
 
+  if (gameInfo.lives <= 0) {
+    return (
+      <>
+        <h2>GAME OVER</h2>
+        <p>(no retry button cause im too lazy just refresh the page)</p>
+      </>
+    );
+  }
+
   if (isPending) {
     return <Loader></Loader>;
   }
