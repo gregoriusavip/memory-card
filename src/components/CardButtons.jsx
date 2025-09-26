@@ -35,18 +35,15 @@ export default function CardButtons({ gameInfo, setGameInfo }) {
       : addScore(new Set([...pokemonSet, pokemonId]));
   }
 
+  const handleSeenClick = () => handleClickSeen(gameInfo.seenPokemon, currentPokemonId);
+  const handleNewClick = () => handleClickNew(gameInfo.seenPokemon, currentPokemonId);
+
   return (
     <div className="choices">
-      <button
-        id="seen"
-        onClick={() => handleClickSeen(gameInfo.seenPokemon, currentPokemonId)}
-      >
+      <button id="seen" onClick={handleSeenClick}>
         ✅ SEEN
       </button>
-      <button
-        id="new"
-        onClick={() => handleClickNew(gameInfo.seenPokemon, currentPokemonId)}
-      >
+      <button id="new" onClick={handleNewClick}>
         ❌ NEW
       </button>
     </div>

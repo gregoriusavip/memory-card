@@ -1,4 +1,5 @@
 import { useQueryClient } from "@tanstack/react-query";
+
 import "../styles/gameButton.css";
 
 async function fetchGeneration(id) {
@@ -21,10 +22,13 @@ export default function GameButtons({ options, setOptions }) {
     });
   }
 
+  const handleGeneration1Click = () => handleClick(1);
+  const handleGeneration2Click = () => handleClick(2);
+
   return (
     <div className="button-container">
-      <button onClick={() => handleClick(1)}>GENERATION 1</button>
-      <button onClick={() => handleClick(2)}>GENERATION 2</button>
+      <button onClick={handleGeneration1Click}>GENERATION 1</button>
+      <button onClick={handleGeneration2Click}>GENERATION 2</button>
     </div>
   );
 }
