@@ -13,13 +13,15 @@ async function fetchPokemon(name) {
 }
 
 export default function GameRound({ pokemonList }) {
-  const randomPokemonId = getRandomInt(pokemonList.length);
-  const pokemonName = pokemonList[randomPokemonId].name;
-
   const [playerStats, setPlayerStats] = useState({
     lives: 3,
     score: 0,
+    seenPokemon: new Set(),
+    totalPokemon: pokemonList.length,
+    currentPokemonId: getRandomInt(pokemonList.length),
   });
+
+  const pokemonName = pokemonList[playerStats.currentPokemonId].name;
 
   const { isPending, isError, data, isSuccess, error } = useQuery({
     queryKey: ["pokemon", pokemonName],
@@ -37,6 +39,16 @@ export default function GameRound({ pokemonList }) {
 
   if (isSuccess) {
     const url = data["sprites"]["other"]["official-artwork"]["front_default"];
-    return <PokeCard pokemonName={pokemonName} imgUrl={url}></PokeCard>;
+    return (
+      <>
+        SCORE: {playerStats.score} LIVES: {playerStats.lives}
+        <PokeCard
+          pokemonName={pokemonName}
+          imgUrl={url}
+          playerStats={playerStats}
+          setPlayerStats={setPlayerStats}
+        ></PokeCard>
+      </>
+    );
   }
 }

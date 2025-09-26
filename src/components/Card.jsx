@@ -1,19 +1,19 @@
 import CardButtons from "./CardButtons";
 import "../styles/card.css";
-import { useState } from "react";
 
-export default function PokeCard({ pokemonName, imgUrl }) {
-  const [clickedButton, setClickedButton] = useState(null);
-
+export default function PokeCard(props) {
   return (
-    <div className={"card" + (clickedButton ? " clicked" : "")}>
+    <div className={"card"}>
       <img
         className="sprite"
-        src={imgUrl}
-        alt={"the sprite of the pokemon " + pokemonName}
+        src={props.imgUrl}
+        alt={"the sprite of the pokemon " + props.pokemonName}
       ></img>
-      <h2>{pokemonName.toUpperCase()}</h2>
-      <CardButtons setClickedButton={setClickedButton}></CardButtons>
+      <h2>{props.pokemonName.toUpperCase()}</h2>
+      <CardButtons
+        playerStats={props.playerStats}
+        setPlayerStats={props.setPlayerStats}
+      ></CardButtons>
     </div>
   );
 }
