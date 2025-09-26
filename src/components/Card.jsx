@@ -1,4 +1,5 @@
 import CardButtons from "./CardButtons";
+
 import "../styles/card.css";
 
 export default function PokeCard(props) {

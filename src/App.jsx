@@ -1,8 +1,8 @@
-import MainMenu from "./components/MainMenu";
-import "./styles/button.css";
-
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+import MainMenu from "./components/MainMenu";
+import "./styles/button.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {

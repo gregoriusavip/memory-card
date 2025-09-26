@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+
 import PokeCard from "./Card";
 import Loader from "./Loader";
-import { useQuery } from "@tanstack/react-query";
 import { getRandomInt } from "../utils";
 
 async function fetchPokemon(name) {
