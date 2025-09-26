@@ -2,10 +2,7 @@ import { useState } from "react";
 import PokeCard from "./Card";
 import Loader from "./Loader";
 import { useQuery } from "@tanstack/react-query";
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
+import { getRandomInt } from "../utils";
 
 async function fetchPokemon(name) {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);

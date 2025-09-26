@@ -1,6 +1,4 @@
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
+import { getRandomInt } from "../utils";
 
 export default function CardButtons({ gameInfo, setGameInfo }) {
   const currentScore = gameInfo.score;
