@@ -9,17 +9,17 @@ export default function Game() {
     highscore: 0,
   });
 
-  if (options["generationData"]) {
+  if (options.generationData) {
     return (
       <GameRound
-        pokemonList={options["generationData"]["pokemon_species"]}
-      ></GameRound>
+        pokemonList={options.generationData.pokemon_species}
+      />
     );
   }
 
   return (
     <div>
-      <GameButtons options={options} setOptions={setOptions}></GameButtons>
+      <GameButtons options={options} setOptions={setOptions} />
     </div>
   );
 }

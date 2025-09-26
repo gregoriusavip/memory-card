@@ -6,7 +6,7 @@ export default function MainMenu() {
       <div className="container">
         <h1>Pokemon Memory Game</h1>
         <p>Memorize the pokemon on your screen. Try to catch them all!</p>
-        <Game></Game>
+        <Game />
       </div>
     </section>
   );
