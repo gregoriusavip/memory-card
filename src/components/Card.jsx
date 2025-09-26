@@ -11,8 +11,8 @@ export default function PokeCard(props) {
       ></img>
       <h2>{props.pokemonName.toUpperCase()}</h2>
       <CardButtons
-        playerStats={props.playerStats}
-        setPlayerStats={props.setPlayerStats}
+        gameInfo={props.gameInfo}
+        setGameInfo={props.setGameInfo}
       ></CardButtons>
     </div>
   );

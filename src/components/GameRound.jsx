@@ -13,7 +13,7 @@ async function fetchPokemon(name) {
 }
 
 export default function GameRound({ pokemonList }) {
-  const [playerStats, setPlayerStats] = useState({
+  const [gameInfo, setGameInfo] = useState({
     lives: 3,
     score: 0,
     seenPokemon: new Set(),
@@ -21,7 +21,7 @@ export default function GameRound({ pokemonList }) {
     currentPokemonId: getRandomInt(pokemonList.length),
   });
 
-  const pokemonName = pokemonList[playerStats.currentPokemonId].name;
+  const pokemonName = pokemonList[gameInfo.currentPokemonId].name;
 
   const { isPending, isError, data, isSuccess, error } = useQuery({
     queryKey: ["pokemon", pokemonName],
@@ -41,12 +41,12 @@ export default function GameRound({ pokemonList }) {
     const url = data["sprites"]["other"]["official-artwork"]["front_default"];
     return (
       <>
-        SCORE: {playerStats.score} LIVES: {playerStats.lives}
+        SCORE: {gameInfo.score} LIVES: {gameInfo.lives}
         <PokeCard
           pokemonName={pokemonName}
           imgUrl={url}
-          playerStats={playerStats}
-          setPlayerStats={setPlayerStats}
+          gameInfo={gameInfo}
+          setGameInfo={setGameInfo}
         ></PokeCard>
       </>
     );

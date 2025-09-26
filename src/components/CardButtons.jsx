@@ -2,26 +2,26 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-export default function CardButtons({ playerStats, setPlayerStats }) {
-  const currentScore = playerStats.score;
-  const currentLives = playerStats.lives;
-  const currentPokemonId = playerStats.currentPokemonId;
+export default function CardButtons({ gameInfo, setGameInfo }) {
+  const currentScore = gameInfo.score;
+  const currentLives = gameInfo.lives;
+  const currentPokemonId = gameInfo.currentPokemonId;
 
   function addScore(newPokemonSet) {
-    setPlayerStats({
-      ...playerStats,
+    setGameInfo({
+      ...gameInfo,
       score: currentScore + 1,
       seenPokemon: newPokemonSet,
-      currentPokemonId: getRandomInt(playerStats.totalPokemon),
+      currentPokemonId: getRandomInt(gameInfo.totalPokemon),
     });
   }
 
   function reduceLive(newPokemonSet) {
-    setPlayerStats({
-      ...playerStats,
+    setGameInfo({
+      ...gameInfo,
       lives: currentLives - 1,
       seenPokemon: newPokemonSet,
-      currentPokemonId: getRandomInt(playerStats.totalPokemon),
+      currentPokemonId: getRandomInt(gameInfo.totalPokemon),
     });
   }
 
@@ -41,17 +41,13 @@ export default function CardButtons({ playerStats, setPlayerStats }) {
     <div className="choices">
       <button
         id="seen"
-        onClick={() =>
-          handleClickSeen(playerStats.seenPokemon, currentPokemonId)
-        }
+        onClick={() => handleClickSeen(gameInfo.seenPokemon, currentPokemonId)}
       >
         ✅ SEEN
       </button>
       <button
         id="new"
-        onClick={() =>
-          handleClickNew(playerStats.seenPokemon, currentPokemonId)
-        }
+        onClick={() => handleClickNew(gameInfo.seenPokemon, currentPokemonId)}
       >
         ❌ NEW
       </button>
